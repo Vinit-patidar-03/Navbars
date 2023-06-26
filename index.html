@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belanosima:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>HyperZone</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    header
+    {
+      height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+      position: absolute;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+    }
+    
+    nav {
+      width: 100%;
+      height: 50px;
+      position: relative;
+      background-color: cornflowerblue;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0px 10px;
+      font-family: "Belanosima", sans-serif;
+      cursor: pointer;
+    }
+    .logo {
+      margin: 0px 30px;
+      color: white;
+      font-family: "Belanosima", sans-serif;
+    }
+
+    .xmark
+    {
+        display: none;
+    }
+
+    .bars {
+      position: absolute;
+      right: 30px;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav ul li:hover
+    {
+       color: rgb(212, 20, 142);
+    }
+
+    #Home
+    {
+      width: 100%;
+      height: 100vh;
+      background-color: rgb(0, 0, 0);
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Belanosima", sans-serif;
+    }
+
+    #Home h3
+    {
+      margin-top: 5px;
+      color: rgb(106, 101, 101);
+    }
+    .zone
+    {
+      font-size: 1.75rem;
+      color: cornflowerblue;
+    }
+
+    @media (max-width: 500px) {
+      .bars {
+        display: block;
+      }
+
+      .mobile-menu
+      {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        right:-100%;
+        transition: all 0.5s ease-in;
+      }
+
+      #Home
+      {
+        font-size: 0.7rem;
+      }
+
+      .zone
+      {
+        font-size: 1rem;
+      }
+      .mobile-menu ul
+      {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        background-color: cornflowerblue;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .mobile-menu ul li
+      {
+        margin: 20px 0px;
+        cursor: pointer;
+      }
+
+      .xmark
+      {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+
+      }
+
+      .moveL
+      {
+         right: 0%;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><h3>HyperZone</h3></div>
+        <div class="mobile-menu">
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+          </ul>
+          <div class="xmark">
+            <i
+              class="fa-solid fa-xmark"
+              style="
+                color: white;
+                border: 2px solid white;
+                padding: 5px;
+                border-radius: 3px;
+              "
+            ></i>
+          </div>
+        </div>
+        <div class="bars">
+          <i
+            class="fa-solid fa-bars"
+            style="
+              color: white;
+              border: 2px solid white;
+              padding: 5px;
+              border-radius: 3px;
+            "
+          ></i>
+        </div>
+      </nav>
+    </header>
+  
+    <main>
+      <section id="Home">
+           <h1>Welcome to Hyper<span class="zone">Zone</span> Technologies</h1>
+           <h3>One Step Solution for all Your Technical Problems</h3>
+      </section>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/97c300a5fa.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        let mobileMenu = document.getElementsByClassName('mobile-menu');
+        let bars = document.getElementsByClassName('bars');
+        let xmark = document.getElementsByClassName('xmark');
+
+        bars[0].addEventListener('click',()=>
+        {
+            mobileMenu[0].classList.add('moveL');
+        })
+
+        xmark[0].addEventListener('click',()=>
+        {
+            mobileMenu[0].classList.remove('moveL');
+        })
+    </script>
+  </body>
+</html>
